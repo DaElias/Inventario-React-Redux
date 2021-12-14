@@ -61,7 +61,7 @@ const InsertProducts = () => {
             </label>
             <label>
                 <h1>Id</h1>
-                <input type='text' name="id" value={id} onChange={handleInpunt} />
+                <input type='text' name="id" value={id} onChange={handleInpunt} required/>
             </label>
             <input type='submit' />
             <hr></hr>
