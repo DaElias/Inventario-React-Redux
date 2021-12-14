@@ -55,9 +55,19 @@ const Product = ({ name, descript, price, DeleteProduct, id, EditProduc }) => {
                 </>
                 :
                 <>
-                    <input type='text' value={nameN} onChange={handleInput} name="name" />
-                    <input type='number' value={priceN} onChange={handleInput} name="price" />
-                    <input type='number' value={descriptN} onChange={handleInput} name="descript" />
+                    <label>
+                        <h1>Name:</h1>
+                        <input type='text' value={nameN} onChange={handleInput} name="name" />
+                    </label>
+                    <label>
+                        <h1>Price</h1>
+                        <input type='number' value={priceN} onChange={handleInput} name="price" />
+                    </label>
+                    <label>
+                        <h1>Description</h1>
+
+                        <textarea type='number' value={descriptN} onChange={handleInput} name="descript" />
+                    </label>
                     <button onClick={() => { handleEdit(id) }} >Enviar</button>
                     <button onClick={() => { btnWindows() }} >Cancelar</button>
                 </>

@@ -1,5 +1,7 @@
 import { useState, useContext } from "react";
 import { Context } from "./Store";
+import { Link } from "react-router-dom";
+
 const InsertProducts = () => {
     const [nombre, setNombre] = useState('');
     const [informacion, setInformacion] = useState('');
@@ -44,7 +46,8 @@ const InsertProducts = () => {
         setPrice(0);
         setid('');
     }
-    return (
+    return (<>
+    <Link to="/">Home</Link>
         <form onSubmit={handleSubmit}>
             <h1>--Añadir Productos--</h1>
             <label>
@@ -53,7 +56,7 @@ const InsertProducts = () => {
             </label>
             <label>
                 <h1>Informacion</h1>
-                <input type='text' name="informacion" value={informacion} onChange={handleInpunt} />
+                <textarea type='text' name="informacion" value={informacion} onChange={handleInpunt} />
             </label>
             <label>
                 <h1>Precio</h1>
@@ -61,11 +64,13 @@ const InsertProducts = () => {
             </label>
             <label>
                 <h1>Id</h1>
-                <input type='text' name="id" value={id} onChange={handleInpunt} required/>
+                <input type='text' name="id" value={id} onChange={handleInpunt} required />
             </label>
             <input type='submit' />
             <hr></hr>
         </form>
+    </>
+
     )
 }
 
