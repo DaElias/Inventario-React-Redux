@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Context } from './Store';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 // add products
 import Product from './Product';
 export const ShowProducts = () => {
@@ -21,7 +21,8 @@ export const ShowProducts = () => {
                 return { ...product, 
                     name: newProduc.name,
                     descript:newProduc.descript,
-                    price:newProduc.price
+                    price:newProduc.price,
+                    amount:newProduc.amount
                 }
             }
             return product;
@@ -29,8 +30,12 @@ export const ShowProducts = () => {
     };
 
     return (
-        <div>
+        <div
+        style={{marginBottom:60}}
+        >
+            {/*
             <Link to="/">Home</Link>
+             */}
             <h1>--List of Products--</h1>
             {state.map((index) => {
                 return <Product
@@ -40,7 +45,9 @@ export const ShowProducts = () => {
                     price={index.price}
                     DeleteProduct={DeleteProduct}
                     EditProduc={EditProduc}
-                    id={index.id} />
+                    id={index.id} 
+                    amount={index.amount}
+                    />
             })}
         </div>
     )

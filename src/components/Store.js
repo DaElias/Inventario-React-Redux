@@ -6,13 +6,15 @@ const initialState = [
         name: "example1",
         id: '123',
         price: '200',
-        descript: 'example1 product is very good!!.'
+        descript: 'example1 product is very good!!.',
+        amount:0
     },
     {
         name: "example2",
         id: '321',
         price: '400',
-        descript: 'example2 product is the better good!!.'
+        descript: 'example2 product is the better good!!.',
+        amount:0
     }
 ]
 

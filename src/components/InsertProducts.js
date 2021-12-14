@@ -11,6 +11,7 @@ const InsertProducts = () => {
     const [informacion, setInformacion] = useState('');
     const [price, setPrice] = useState('');
     const [id, setid] = useState('');
+    const [amount, setamount] = useState('');
     //add context global
     const [state, setstate] = useContext(Context)
     const handleInpunt = (event) => {
@@ -19,7 +20,6 @@ const InsertProducts = () => {
         switch (type) {
             case 'nombre':
                 setNombre(date);
-
                 break;
             case 'informacion':
                 setInformacion(date);
@@ -32,6 +32,9 @@ const InsertProducts = () => {
             case 'id':
                 setid(date);
                 break;
+            case 'amount':
+                setamount(Math.abs(date));
+                break;
         }
     }
     const handleSubmit = (event) => {
@@ -41,7 +44,8 @@ const InsertProducts = () => {
             name: nombre,
             id: id,
             price: price,
-            descript: informacion
+            descript: informacion,
+            amount:amount
         }]);
         // fin add submit
         //reset useStates
@@ -50,19 +54,22 @@ const InsertProducts = () => {
         setPrice(0);
         setid('');
     }
-//Tamaño porcentaje 
-const Width = "80%";
+    //Tamaño porcentaje 
+    const Width = "80%";
 
     return (<>
-        <Link to="/">Home</Link>
+        {/*
+         <Link to="/">Home</Link>
+         */}
         <form onSubmit={handleSubmit}>
             <h1>--Añadir Productos--</h1>
-            <TextField
-                style={{ width: Width}}
-                id="outlined-basic" label="Nombre del Producto" variant="outlined" name="nombre" value={nombre} onChange={handleInpunt} />
-
             <label>
-                <h1>Informacion</h1>
+                <TextField
+                    style={{ width: Width }}
+                    id="outlined-basic" label="Nombre del Producto" variant="outlined" name="nombre" value={nombre} onChange={handleInpunt} />
+            </label>
+            <label>
+                <h2>Informacion</h2>
                 <TextareaAutosize
                     aria-label="empty textarea"
                     placeholder="Describa el producto"
@@ -71,18 +78,23 @@ const Width = "80%";
                 />
             </label>
             <label>
-                <h1>Precio</h1>
-                <Input 
-                style={{ width: Width }}
-                placeholder="Digite el precio" name="price" value={price} onChange={handleInpunt} />
-
+                <h2>Precio</h2>
+                <Input
+                    style={{ width: Width }}
+                    placeholder="Digite el precio" name="price" value={price} onChange={handleInpunt} />
             </label>
             <label>
-                <h1>Id</h1>
-                <TextField 
-                style={{ width: Width }}
-                
-                id="standard-basic" label="Id del producto" variant="standard" name="id" value={id} onChange={handleInpunt} required />
+                <h2>Cantidad</h2>
+                <Input
+                    type="number"
+                    style={{ width: Width }}
+                    placeholder="Digite la cantidad" name="amount" value={amount} onChange={handleInpunt} />
+            </label>
+            <label>
+                <h2>Id</h2>
+                <TextField
+                    style={{ width: Width }}
+                    id="standard-basic" label="Id del producto" variant="standard" name="id" value={id} onChange={handleInpunt} required />
             </label>
             <Button variant="contained" type="submit">Enviar!!</Button>
             <hr></hr>
