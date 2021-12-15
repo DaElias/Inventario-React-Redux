@@ -47,6 +47,7 @@ export const ShowProducts = () => {
                     EditProduc={EditProduc}
                     id={index.id} 
                     amount={index.amount}
+                   
                     />
             })}
         </div>

@@ -21,7 +21,7 @@ export default function SimpleBottomNavigation({WindowsAdd,setWindowsAdd,Windows
         <div style={{
             position: "fixed",
             top: "93%",
-            width: "100%",
+            width: "110%",
             left: 0,
             right: 0,
             zIndex: "99"

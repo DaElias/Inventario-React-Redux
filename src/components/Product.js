@@ -27,7 +27,9 @@ const Product = ({ name, descript, price, DeleteProduct, id, EditProduc, amount 
 
 
     return (
-        <div>
+        <div
+        style={{marginBottom:2}}
+        >
             {!windows
                 ?
                 <>

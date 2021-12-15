@@ -115,7 +115,7 @@ export default function OutlinedCard(
                 }}>Cancelar</Button>
                 <Button onClick={()=>{
                     handleEdit(id);
-                }}>Enviar</Button>
+                }}>Guardar</Button>
             </CardActions>
         </Card>
     );
