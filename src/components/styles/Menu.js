@@ -4,19 +4,22 @@ import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import AddIcon from '@material-ui/icons/Add';
 import { Box } from '@material-ui/core';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ListIcon from '@material-ui/icons/List';
 import SearchIcon from '@material-ui/icons/Search';
+import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 const useStyles = makeStyles({
     root: {
         width: "95%",
     },
 });
 
-export default function SimpleBottomNavigation({WindowsAdd,setWindowsAdd,WindowsShow,setWindowsShow}) {
+export default function SimpleBottomNavigation() {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
-
+    const [color, setColor] = React.useState({
+        color_Active:"Blue",
+    });
     return (
         <div style={{
             position: "fixed",
@@ -35,16 +38,19 @@ export default function SimpleBottomNavigation({WindowsAdd,setWindowsAdd,Windows
                     showLabels
                     className={classes.root}
                 >
-                    <BottomNavigationAction label="Añadir Producto" icon={<AddIcon />} onClick={()=>{
-                         setWindowsShow(true);
-                         setWindowsAdd(false);
-                    }} />
-                    <BottomNavigationAction label="Lista Productos" icon={<ListIcon />} onClick={()=>{
-                         
-                            setWindowsAdd(true);
-                            setWindowsShow(false);
-                    }} />
-                    <BottomNavigationAction label="Buscar Producto" icon={<SearchIcon />} />
+                    <Link to="/add">
+                    <BottomNavigationAction label="Añadir Producto" icon={<AddIcon />} />
+                    </Link>
+                    <Link to="/edit">
+                    <BottomNavigationAction label="Lista Productos" icon={<ListIcon />} />
+                    </Link>
+                    <Link to="/">
+                    
+
+                    <BottomNavigationAction label="Buscar Producto" icon={<HomeRoundedIcon 
+                    style={{color:"#d0d3d4"}}
+                    />} />
+                    </Link>
                 </BottomNavigation>
             </Box>
 
